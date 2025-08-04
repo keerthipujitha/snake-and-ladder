@@ -1,0 +1,72 @@
+import random
+
+# Define the snakes and ladders positions
+snakes = {
+    99: 21,
+    95: 75,
+    92: 88,
+    89: 68,
+    74: 53,
+    62: 19,
+    49: 11,
+    46: 25,
+    16: 6
+}
+
+ladders = {
+    2: 38,
+    7: 14,
+    8: 31,
+    15: 26,
+    21: 42,
+    28: 84,
+    36: 44,
+    51: 67,
+    71: 91,
+    78: 98,
+    87: 94
+}
+
+# Player positions
+player_pos = [0, 0]
+
+def roll_dice():
+    return random.randint(1, 6)
+
+def move(player, dice):
+    print(f"\nPlayer {player + 1} rolled a {dice}")
+    pos = player_pos[player] + dice
+    if pos > 100:
+        print(f"Player {player + 1} stays at {player_pos[player]}")
+        return
+    # Check for ladder
+    if pos in ladders:
+        print(f"Player {player + 1} climbed a ladder from {pos} to {ladders[pos]}")
+        pos = ladders[pos]
+    # Check for snake
+    elif pos in snakes:
+        print(f"Player {player + 1} got bitten by a snake from {pos} to {snakes[pos]}")
+        pos = snakes[pos]
+    player_pos[player] = pos
+    print(f"Player {player + 1} is now at position {pos}")
+
+def check_winner(player):
+    if player_pos[player] == 100:
+        print(f"\n🎉 Player {player + 1} wins! 🎉")
+        return True
+    return False
+
+def play_game():
+    print("🎲 Welcome to Snake and Ladder! 🎲")
+    turn = 0
+    while True:
+        input(f"\nPlayer {turn + 1}, press Enter to roll the dice...")
+        dice = roll_dice()
+        move(turn, dice)
+        if check_winner(turn):
+            break
+        if dice != 6:
+            turn = 1 - turn  # switch player unless 6
+
+# Run the game
+play_game()
