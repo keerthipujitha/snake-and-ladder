@@ -1,3 +1,5 @@
+# snake-and-ladder
+Snake and Ladder is a classic board game where players race to reach the 100th square by rolling a dice. Ladders boost progress upward, while snakes pull players back down.
 🐍 How to Play Snake and Ladders:
 Players take turns rolling a dice and move forward by the number rolled.
 
@@ -9,5 +11,4 @@ To win, a player must land exactly on square 100 — if the dice roll overshoots
 
 Rolling a 6 gives another turn.
 
-Simple, fun, and full of surprises! 🎲# snake-and-ladder
-Snake and Ladder is a classic board game where players race to reach the 100th square by rolling a dice. Ladders boost progress upward, while snakes pull players back down.
+Simple, fun, and full of surprises! 🎲
